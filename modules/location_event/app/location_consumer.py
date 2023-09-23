@@ -5,7 +5,7 @@ from kafka import KafkaConsumer
 
 
 TOPIC_NAME = 'location_topic'
-KAFKA_SERVER = 'localhost:9092'
+KAFKA_SERVER = 'kafka:9092'
 
 
 consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=KAFKA_SERVER)
