@@ -19,6 +19,3 @@ class Person(db.Model):
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
     company_name = Column(String, nullable=False)
-
-
-

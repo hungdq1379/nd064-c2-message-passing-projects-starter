@@ -31,9 +31,9 @@ spec:
         service: udaconnect-connection-api
     spec:
       containers:
-      - image: udacity/nd064-udaconnect-api:latest
+      - image: connection_service:latest
         name: udaconnect-connection-api
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: DB_USERNAME
           valueFrom:

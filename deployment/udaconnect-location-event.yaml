@@ -31,9 +31,9 @@ spec:
         service: udaconnect-location-event
     spec:
       containers:
-      - image: udacity/nd064-udaconnect-api:latest
+      - image: location-event:latest
         name: udaconnect-location-event
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: DB_USERNAME
           valueFrom:
@@ -60,4 +60,14 @@ spec:
             configMapKeyRef:
               name: db-env
               key: DB_PORT
+        - name: TOPIC_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: TOPIC_NAME
+        - name: KAFKA_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: kafka-env
+              key: KAFKA_SERVER
       restartPolicy: Always
