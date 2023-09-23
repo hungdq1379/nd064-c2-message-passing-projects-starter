@@ -5,7 +5,7 @@ import grpc
 import location_pb2
 import location_pb2_grpc
 from kafka import KafkaProducer
-from app.services import LocationService
+from services import LocationService
 
 
 class LocationService(location_pb2_grpc.LocationServiceServicer):

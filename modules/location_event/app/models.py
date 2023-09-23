@@ -12,9 +12,9 @@ from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import declarative_base
 
-Base = declarative_base()
+BaseModel = declarative_base()
 
-class Person(Base):
+class Person(BaseModel):
     __tablename__ = "person"
 
     id = Column(Integer, primary_key=True)
@@ -23,7 +23,7 @@ class Person(Base):
     company_name = Column(String, nullable=False)
 
 
-class Location(Base):
+class Location(BaseModel):
     __tablename__ = "location"
 
     id = Column(BigInteger, primary_key=True)

@@ -11,6 +11,4 @@ DB_NAME = os.environ["DB_NAME"]
 
 SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
-
-# a sessionmaker(), also in the same scope as the engine
 db = Session(engine)

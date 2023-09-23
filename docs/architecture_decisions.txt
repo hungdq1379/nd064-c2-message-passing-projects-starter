@@ -1,0 +1,16 @@
+Frontend: The frontend will display person and location data. It will interface with the backend using RESTful API (location, persion, and connection services).
+
+Location-event:
+    Consume kafka messages from the location service and then generate fresh data for the location using the grpc protocol.
+
+Location-service: 
+    I chose gRPC and kafka to implement location endpoints because there is no need to communicate directly with the frontend and it can be called by tcp protocol, 
+    and when using kafka support event driven it makes application low coupling and with gRPC protocal it makes application run faster. 
+    2 Endpoints of gRPC will be used to implement this:
+        - GetLocation: find location by id
+        - CreateLocation: To create a new location, submit a new message to Kafka.
+    
+Connection-service: Displays the relationship between a person and a location.
+
+Database: 
+    All service data will be stored in the Postge database.
