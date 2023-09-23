@@ -6,10 +6,10 @@ metadata:
   name: udaconnect-location-event
 spec:
   ports:
-  - name: "5002"
-    port: 5003
+  - name: "5004"
+    port: 5004
     targetPort: 5000
-    nodePort: 30003
+    nodePort: 30004
   selector:
     service: udaconnect-location-event
   type: NodePort

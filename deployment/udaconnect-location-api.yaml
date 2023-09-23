@@ -6,8 +6,8 @@ metadata:
   name: udaconnect-location-api
 spec:
   ports:
-  - name: "5001"
-    port: 5002
+  - name: "5003"
+    port: 5003
     targetPort: 5000
     nodePort: 30003
   selector:
