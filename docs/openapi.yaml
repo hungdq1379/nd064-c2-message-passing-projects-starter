@@ -1,0 +1,155 @@
+openapi: 3.0.1
+info:
+  title: UdaConnect App
+  description: UdaConnect App
+  version: '0.1'
+servers:
+  - url: http://localhost:30005
+  - url: http://localhost:30002
+paths:
+  /api/persons:
+    get:
+      description: Get all persons
+      responses:
+        '200':
+          description: all persons
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                '0':
+                  value: >
+                    [
+                      {
+                          "last_name": "Fargo",
+                          "id": 5,
+                          "company_name": "Alpha Omega Upholstery",
+                          "first_name": "Taco"
+                      },
+                      {
+                          "last_name": "Shader",
+                          "id": 6,
+                          "company_name": "USDA",
+                          "first_name": "Frank"
+                      },
+                      {
+                          "last_name": "Trexler",
+                          "id": 1,
+                          "company_name": "Hampton, Hampton and McQuill",
+                          "first_name": "Pam"
+                      },
+                      {
+                          "last_name": "Badman",
+                          "id": 8,
+                          "company_name": "Paul Badman & Associates",
+                          "first_name": "Paul"
+                      },
+                      {
+                          "last_name": "Spring",
+                          "id": 9,
+                          "company_name": "The Chicken Sisters Restaurant",
+                          "first_name": "Otto"
+                      }
+                    ]
+      servers:
+        - url: http://localhost:30005
+    post:
+      description: Create person
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                company_name:
+                  type: string
+            examples:
+              '0':
+                value: "{\r\n    \"first_name\":\"duong\",\r\n    \"last_name\":\"quoc hung\",\r\n    \"company_name\":\"ABC\"\r\n}"
+      responses:
+        '200':
+          description: input new person
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  company_name:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {"id": 1, "first_name": "duong", "last_name": "quoc hung", "company_name": "ABC"}
+      servers:
+        - url: http://localhost:30004
+    servers:
+      - url: http://localhost:30004
+  /api/persons/1:
+    get:
+      description: Get person by id
+      responses:
+        '200':
+          description: Get person by id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  company_name:
+                    type: string
+              examples:
+                '0':
+                  value: >
+                    {
+                          "last_name": "Trexler",
+                          "id": 1,
+                          "company_name": "Hampton, Hampton and McQuill",
+                          "first_name": "Pam"
+                    }
+      servers:
+        - url: http://localhost:30005
+
+  /api/persons/1/connection:
+    get:
+      description: get relattionship of person and connection
+      parameters:
+        - name: start_date
+          in: query
+          schema:
+            type: string
+          example: '2021-11-11'
+        - name: end_date
+          in: query
+          schema:
+            type: string
+          example: '2021-12-03'
+        - name: distance
+          in: query
+          schema:
+            type: string
+          example: '1'
+        
+      responses:
+        '200':
+          description: relattionship between person and connection
+      servers:
+        - url: http://localhost:30004
+    

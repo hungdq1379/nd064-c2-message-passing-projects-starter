@@ -31,7 +31,7 @@ spec:
         service: udaconnect-location-api
     spec:
       containers:
-      - image: location-service:latest
+      - image: hungdq1979/location-service:latest
         name: udaconnect-location-api
         imagePullPolicy: IfNotPresent
         env:

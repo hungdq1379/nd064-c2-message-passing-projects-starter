@@ -31,7 +31,7 @@ spec:
         service: udaconnect-location-event
     spec:
       containers:
-      - image: location-event:latest
+      - image: hungdq1979/location-event:latest
         name: udaconnect-location-event
         imagePullPolicy: IfNotPresent
         env:
